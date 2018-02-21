@@ -1,0 +1,36 @@
+
+<div *ngIf="mention">
+    <h2><span jhiTranslate="jhipsterApp1App.mention.detail.title">Mention</span> {{mention.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp1App.mention.libelleFr">Libelle Fr</span></dt>
+        <dd>
+            <span>{{mention.libelleFr}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.mention.libelleAr">Libelle Ar</span></dt>
+        <dd>
+            <span>{{mention.libelleAr}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.mention.domaine">Domaine</span></dt>
+        <dd>
+            <div *ngIf="mention.domaineId">
+                <a [routerLink]="['/domaine-my-suffix', mention.domaineId]">{{mention.domaineId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'mention-my-suffix/'+ mention.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

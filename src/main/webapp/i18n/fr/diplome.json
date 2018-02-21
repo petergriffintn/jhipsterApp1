@@ -1,0 +1,23 @@
+
+{
+    "jhipsterApp1App": {
+        "diplome" : {
+            "home": {
+                "title": "Diplomes",
+                "createLabel": "Créer un nouveau Diplome",
+                "createOrEditLabel": "Créer ou éditer un Diplome"
+            },
+            "created": "Un nouveau Diplome a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Diplome avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Diplome avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Diplome {{ id }} ?"
+            },
+            "detail": {
+                "title": "Diplome"
+            },
+            "libelleFr": "Libelle Fr",
+            "libelleAr": "Libelle Ar"
+        }
+    }
+}

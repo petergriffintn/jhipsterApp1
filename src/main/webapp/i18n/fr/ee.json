@@ -1,0 +1,23 @@
+
+{
+    "jhipsterApp1App": {
+        "ee" : {
+            "home": {
+                "title": "Ees",
+                "createLabel": "Créer un nouveau Ee",
+                "createOrEditLabel": "Créer ou éditer un Ee"
+            },
+            "created": "Un nouveau Ee a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Ee avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Ee avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Ee {{ id }} ?"
+            },
+            "detail": {
+                "title": "Ee"
+            },
+            "nom": "Nom",
+            "ue": "Ue"
+        }
+    }
+}

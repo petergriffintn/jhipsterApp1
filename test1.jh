@@ -1,0 +1,130 @@
+entity Domaine {
+	//id Long
+    LibelleFr String required
+    LibelleAr String required
+    
+}
+
+relationship OneToMany{
+	Domaine{Mention} to Mention
+}
+
+entity Mention {
+	//id Long
+	    LibelleFr String required
+    LibelleAr String required
+}
+
+// an ignored comment
+/** not an ignored comment */
+
+
+entity Diplome {
+	    LibelleFr String required
+    LibelleAr String required
+}
+
+relationship ManyToOne{ 
+	Parcours{Diplome} to Diplome    
+}
+
+relationship ManyToOne{
+	Parcours{Mention} to Mention
+}
+
+entity Parcours{
+	    LibelleFr String required
+    LibelleAr String required
+}
+
+
+
+relationship ManyToOne{
+	Specialite{Parcours} to Parcours
+}
+entity Specialite {
+	    LibelleFr String required
+    LibelleAr String required
+    Type TypeSpecialite
+}
+
+relationship ManyToOne{
+	Programme{Specialite} to Specialite
+} 
+
+entity Programme {
+	    LibelleFr String required
+    LibelleAr String required
+}
+
+entity Universite{
+	    LibelleFr String required
+    LibelleAr String required
+}
+
+relationship ManyToOne{
+	Etablissement{Universite} to Universite
+} 
+
+entity Etablissement {
+	    LibelleFr String required
+    LibelleAr String required
+}
+
+relationship OneToOne{
+	Specialite{Etablissement} to Etablissement
+}
+
+relationship ManyToOne{
+	Ue{Programme} to Programme
+}
+
+
+
+entity Ue{
+	Nom String required
+    Type TypeUe
+    Qualif Qualification
+    Regime RegimeExamen
+    Nature Nature
+}
+
+enum Nature{
+	TRANSVERSALE,FONDAMENTALE
+}
+
+enum TypeUe{
+	OBLIGATOIRE, OPTIONNEL
+}
+
+enum Qualification{
+	ENSEIGNEMENT, PROJET
+}
+
+enum RegimeExamen{	
+	MX,CC
+}
+
+entity Ee{
+	Nom String required
+}
+
+relationship ManyToOne{
+	Ee{Ue} to Ue
+}
+
+enum TypeSpecialite{
+	TC, SPEC
+}
+
+
+// Set pagination options
+paginate  * with infinite-scroll
+//paginate Parcours with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+// Set an angular suffix
+angularSuffix * with mySuffix

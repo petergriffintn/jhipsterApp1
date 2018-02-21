@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterApp1App.ue.home.title">Ues</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ue-my-suffix" [routerLink]="['/', { outlets: { popup: ['ue-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterApp1App.ue.home.createLabel">
+            Create new Ue
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ues">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nom"><span jhiTranslate="jhipsterApp1App.ue.nom">Nom</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type"><span jhiTranslate="jhipsterApp1App.ue.type">Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="qualif"><span jhiTranslate="jhipsterApp1App.ue.qualif">Qualif</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="regime"><span jhiTranslate="jhipsterApp1App.ue.regime">Regime</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="nature"><span jhiTranslate="jhipsterApp1App.ue.nature">Nature</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="programmeId"><span jhiTranslate="jhipsterApp1App.ue.programme">Programme</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let ue of ues ;trackBy: trackId">
+                <td><a [routerLink]="['../ue-my-suffix', ue.id ]">{{ue.id}}</a></td>
+                <td>{{ue.nom}}</td>
+                <td jhiTranslate="{{'jhipsterApp1App.TypeUe.' + ue.type}}">{{ue.type}}</td>
+                <td jhiTranslate="{{'jhipsterApp1App.Qualification.' + ue.qualif}}">{{ue.qualif}}</td>
+                <td jhiTranslate="{{'jhipsterApp1App.RegimeExamen.' + ue.regime}}">{{ue.regime}}</td>
+                <td jhiTranslate="{{'jhipsterApp1App.Nature.' + ue.nature}}">{{ue.nature}}</td>
+                <td>
+                    <div *ngIf="ue.programmeId">
+                        <a [routerLink]="['../programme-my-suffix', ue.programmeId  ]" >{{ue.programmeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ue-my-suffix', ue.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ue-my-suffix/'+ ue.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ue-my-suffix/'+ ue.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

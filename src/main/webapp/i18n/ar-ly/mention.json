@@ -1,0 +1,24 @@
+
+{
+    "jhipsterApp1App": {
+        "mention" : {
+            "home": {
+                "title": "Mentions",
+                "createLabel": "Create a new Mention",
+                "createOrEditLabel": "Create or edit a Mention"
+            },
+            "created": "A new Mention is created with identifier {{ param }}",
+            "updated": "A Mention is updated with identifier {{ param }}",
+            "deleted": "A Mention is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mention {{ id }}?"
+            },
+            "detail": {
+                "title": "Mention"
+            },
+            "libelleFr": "Libelle Fr",
+            "libelleAr": "Libelle Ar",
+            "domaine": "Domaine"
+        }
+    }
+}

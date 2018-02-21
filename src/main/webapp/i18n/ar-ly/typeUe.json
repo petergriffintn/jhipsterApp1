@@ -1,0 +1,9 @@
+{
+    "jhipsterApp1App": {
+        "TypeUe" : {
+            "null": "",
+            "OBLIGATOIRE": "OBLIGATOIRE",
+            "OPTIONNEL": "OPTIONNEL"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+
+{
+    "jhipsterApp1App": {
+        "parcours" : {
+            "home": {
+                "title": "Parcours",
+                "createLabel": "Create a new Parcours",
+                "createOrEditLabel": "Create or edit a Parcours"
+            },
+            "created": "A new Parcours is created with identifier {{ param }}",
+            "updated": "A Parcours is updated with identifier {{ param }}",
+            "deleted": "A Parcours is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Parcours {{ id }}?"
+            },
+            "detail": {
+                "title": "Parcours"
+            },
+            "libelleFr": "Libelle Fr",
+            "libelleAr": "Libelle Ar",
+            "diplome": "Diplome",
+            "mention": "Mention"
+        }
+    }
+}

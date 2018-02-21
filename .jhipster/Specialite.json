@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "etablissement",
+            "otherEntityName": "etablissement",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "specialite"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "parcours",
+            "otherEntityName": "parcours",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "libelleFr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "libelleAr",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeSpecialite",
+            "fieldValues": "TC,SPEC"
+        }
+    ],
+    "changelogDate": "20180221160055",
+    "entityTableName": "specialite",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}

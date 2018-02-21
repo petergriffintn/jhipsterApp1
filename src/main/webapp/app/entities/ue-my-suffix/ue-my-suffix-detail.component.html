@@ -1,0 +1,48 @@
+
+<div *ngIf="ue">
+    <h2><span jhiTranslate="jhipsterApp1App.ue.detail.title">Ue</span> {{ue.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp1App.ue.nom">Nom</span></dt>
+        <dd>
+            <span>{{ue.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.ue.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterApp1App.TypeUe.' + ue.type}}">{{ue.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.ue.qualif">Qualif</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterApp1App.Qualification.' + ue.qualif}}">{{ue.qualif}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.ue.regime">Regime</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterApp1App.RegimeExamen.' + ue.regime}}">{{ue.regime}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.ue.nature">Nature</span></dt>
+        <dd>
+            <span jhiTranslate="{{'jhipsterApp1App.Nature.' + ue.nature}}">{{ue.nature}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.ue.programme">Programme</span></dt>
+        <dd>
+            <div *ngIf="ue.programmeId">
+                <a [routerLink]="['/programme-my-suffix', ue.programmeId]">{{ue.programmeId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ue-my-suffix/'+ ue.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
