@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterApp1App.programme.home.title">Programmes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-programme-my-suffix" [routerLink]="['/', { outlets: { popup: ['programme-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterApp1App.programme.home.createLabel">
+            Create new Programme
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="programmes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="libelleFr"><span jhiTranslate="jhipsterApp1App.programme.libelleFr">Libelle Fr</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="libelleAr"><span jhiTranslate="jhipsterApp1App.programme.libelleAr">Libelle Ar</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="specialiteId"><span jhiTranslate="jhipsterApp1App.programme.specialite">Specialite</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let programme of programmes ;trackBy: trackId">
+                <td><a [routerLink]="['../programme-my-suffix', programme.id ]">{{programme.id}}</a></td>
+                <td>{{programme.libelleFr}}</td>
+                <td>{{programme.libelleAr}}</td>
+                <td>
+                    <div *ngIf="programme.specialiteId">
+                        <a [routerLink]="['../specialite-my-suffix', programme.specialiteId  ]" >{{programme.specialiteId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../programme-my-suffix', programme.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'programme-my-suffix/'+ programme.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'programme-my-suffix/'+ programme.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

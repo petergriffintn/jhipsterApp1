@@ -1,0 +1,27 @@
+
+{
+    "jhipsterApp1App": {
+        "ue" : {
+            "home": {
+                "title": "Ues",
+                "createLabel": "Create a new Ue",
+                "createOrEditLabel": "Create or edit a Ue"
+            },
+            "created": "A new Ue is created with identifier {{ param }}",
+            "updated": "A Ue is updated with identifier {{ param }}",
+            "deleted": "A Ue is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ue {{ id }}?"
+            },
+            "detail": {
+                "title": "Ue"
+            },
+            "nom": "Nom",
+            "type": "Type",
+            "qualif": "Qualif",
+            "regime": "Regime",
+            "nature": "Nature",
+            "programme": "Programme"
+        }
+    }
+}

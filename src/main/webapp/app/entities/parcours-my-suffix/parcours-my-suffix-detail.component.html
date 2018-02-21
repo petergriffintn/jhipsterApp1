@@ -1,0 +1,42 @@
+
+<div *ngIf="parcours">
+    <h2><span jhiTranslate="jhipsterApp1App.parcours.detail.title">Parcours</span> {{parcours.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp1App.parcours.libelleFr">Libelle Fr</span></dt>
+        <dd>
+            <span>{{parcours.libelleFr}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.parcours.libelleAr">Libelle Ar</span></dt>
+        <dd>
+            <span>{{parcours.libelleAr}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.parcours.diplome">Diplome</span></dt>
+        <dd>
+            <div *ngIf="parcours.diplomeId">
+                <a [routerLink]="['/diplome-my-suffix', parcours.diplomeId]">{{parcours.diplomeId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.parcours.mention">Mention</span></dt>
+        <dd>
+            <div *ngIf="parcours.mentionId">
+                <a [routerLink]="['/mention-my-suffix', parcours.mentionId]">{{parcours.mentionId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'parcours-my-suffix/'+ parcours.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

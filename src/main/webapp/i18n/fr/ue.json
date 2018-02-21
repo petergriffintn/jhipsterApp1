@@ -1,0 +1,27 @@
+
+{
+    "jhipsterApp1App": {
+        "ue" : {
+            "home": {
+                "title": "Ues",
+                "createLabel": "Créer un nouveau Ue",
+                "createOrEditLabel": "Créer ou éditer un Ue"
+            },
+            "created": "Un nouveau Ue a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Ue avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Ue avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Ue {{ id }} ?"
+            },
+            "detail": {
+                "title": "Ue"
+            },
+            "nom": "Nom",
+            "type": "Type",
+            "qualif": "Qualif",
+            "regime": "Regime",
+            "nature": "Nature",
+            "programme": "Programme"
+        }
+    }
+}

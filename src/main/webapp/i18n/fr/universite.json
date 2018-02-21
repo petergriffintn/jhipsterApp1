@@ -1,0 +1,23 @@
+
+{
+    "jhipsterApp1App": {
+        "universite" : {
+            "home": {
+                "title": "Universites",
+                "createLabel": "Créer un nouveau Universite",
+                "createOrEditLabel": "Créer ou éditer un Universite"
+            },
+            "created": "Un nouveau Universite a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Universite avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Universite avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Universite {{ id }} ?"
+            },
+            "detail": {
+                "title": "Universite"
+            },
+            "libelleFr": "Libelle Fr",
+            "libelleAr": "Libelle Ar"
+        }
+    }
+}

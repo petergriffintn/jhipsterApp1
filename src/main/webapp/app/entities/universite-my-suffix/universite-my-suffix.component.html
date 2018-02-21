@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="jhipsterApp1App.universite.home.title">Universites</span>
+        <button class="btn btn-primary float-right jh-create-entity create-universite-my-suffix" [routerLink]="['/', { outlets: { popup: ['universite-my-suffix-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="jhipsterApp1App.universite.home.createLabel">
+            Create new Universite
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="universites">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="libelleFr"><span jhiTranslate="jhipsterApp1App.universite.libelleFr">Libelle Fr</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="libelleAr"><span jhiTranslate="jhipsterApp1App.universite.libelleAr">Libelle Ar</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let universite of universites ;trackBy: trackId">
+                <td><a [routerLink]="['../universite-my-suffix', universite.id ]">{{universite.id}}</a></td>
+                <td>{{universite.libelleFr}}</td>
+                <td>{{universite.libelleAr}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../universite-my-suffix', universite.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'universite-my-suffix/'+ universite.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'universite-my-suffix/'+ universite.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

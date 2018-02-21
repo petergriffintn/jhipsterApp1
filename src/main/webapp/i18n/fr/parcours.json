@@ -1,0 +1,25 @@
+
+{
+    "jhipsterApp1App": {
+        "parcours" : {
+            "home": {
+                "title": "Parcours",
+                "createLabel": "Créer un nouveau Parcours",
+                "createOrEditLabel": "Créer ou éditer un Parcours"
+            },
+            "created": "Un nouveau Parcours a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Parcours avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Parcours avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Parcours {{ id }} ?"
+            },
+            "detail": {
+                "title": "Parcours"
+            },
+            "libelleFr": "Libelle Fr",
+            "libelleAr": "Libelle Ar",
+            "diplome": "Diplome",
+            "mention": "Mention"
+        }
+    }
+}

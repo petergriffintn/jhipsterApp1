@@ -1,0 +1,36 @@
+
+<div *ngIf="etablissement">
+    <h2><span jhiTranslate="jhipsterApp1App.etablissement.detail.title">Etablissement</span> {{etablissement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp1App.etablissement.libelleFr">Libelle Fr</span></dt>
+        <dd>
+            <span>{{etablissement.libelleFr}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.etablissement.libelleAr">Libelle Ar</span></dt>
+        <dd>
+            <span>{{etablissement.libelleAr}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp1App.etablissement.universite">Universite</span></dt>
+        <dd>
+            <div *ngIf="etablissement.universiteId">
+                <a [routerLink]="['/universite-my-suffix', etablissement.universiteId]">{{etablissement.universiteId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'etablissement-my-suffix/'+ etablissement.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

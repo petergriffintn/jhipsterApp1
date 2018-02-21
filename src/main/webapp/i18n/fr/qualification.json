@@ -1,0 +1,9 @@
+{
+    "jhipsterApp1App": {
+        "Qualification" : {
+            "null": "",
+            "ENSEIGNEMENT": "ENSEIGNEMENT",
+            "PROJET": "PROJET"
+        }
+    }
+}

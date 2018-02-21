@@ -1,0 +1,68 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySpecialiteLabel" jhiTranslate="jhipsterApp1App.specialite.home.createOrEditLabel">Create or edit a Specialite</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!specialite.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="specialite.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp1App.specialite.libelleFr" for="field_libelleFr">Libelle Fr</label>
+            <input type="text" class="form-control" name="libelleFr" id="field_libelleFr"
+                [(ngModel)]="specialite.libelleFr" required/>
+            <div [hidden]="!(editForm.controls.libelleFr?.dirty && editForm.controls.libelleFr?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.libelleFr?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp1App.specialite.libelleAr" for="field_libelleAr">Libelle Ar</label>
+            <input type="text" class="form-control" name="libelleAr" id="field_libelleAr"
+                [(ngModel)]="specialite.libelleAr" required/>
+            <div [hidden]="!(editForm.controls.libelleAr?.dirty && editForm.controls.libelleAr?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.libelleAr?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp1App.specialite.type" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="specialite.type" id="field_type" >
+                <option value="TC">{{'jhipsterApp1App.TypeSpecialite.TC' | translate}}</option>
+                <option value="SPEC">{{'jhipsterApp1App.TypeSpecialite.SPEC' | translate}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp1App.specialite.etablissement" for="field_etablissement">Etablissement</label>
+            <select class="form-control" id="field_etablissement" name="etablissement" [(ngModel)]="specialite.etablissementId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="etablissementOption.id" *ngFor="let etablissementOption of etablissements; trackBy: trackEtablissementById">{{etablissementOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp1App.specialite.parcours" for="field_parcours">Parcours</label>
+            <select class="form-control" id="field_parcours" name="parcours" [(ngModel)]="specialite.parcoursId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="parcoursOption.id" *ngFor="let parcoursOption of parcours; trackBy: trackParcoursById">{{parcoursOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

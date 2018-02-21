@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "programme",
+            "otherEntityName": "programme",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nom",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeUe",
+            "fieldValues": "OBLIGATOIRE,OPTIONNEL"
+        },
+        {
+            "fieldName": "qualif",
+            "fieldType": "Qualification",
+            "fieldValues": "ENSEIGNEMENT,PROJET"
+        },
+        {
+            "fieldName": "regime",
+            "fieldType": "RegimeExamen",
+            "fieldValues": "MX,CC"
+        },
+        {
+            "fieldName": "nature",
+            "fieldType": "Nature",
+            "fieldValues": "TRANSVERSALE,FONDAMENTALE"
+        }
+    ],
+    "changelogDate": "20180221160059",
+    "entityTableName": "ue",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "mySuffix"
+}
